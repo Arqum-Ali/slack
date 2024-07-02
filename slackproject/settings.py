@@ -127,3 +127,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+from decouple import config
+import django_heroku
+
+SECRET_KEY = config('SECRET_KEY')
+SLACK_CLIENT_ID = config('SLACK_CLIENT_ID')
+SLACK_CLIENT_SECRET = config('SLACK_CLIENT_SECRET')
+SLACK_REDIRECT_URI = config('SLACK_REDIRECT_URI')
+
+django_heroku.settings(locals())
