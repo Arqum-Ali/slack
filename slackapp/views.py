@@ -14,7 +14,8 @@ def login(request):
     redirect_uri = settings.SLACK_REDIRECT_URI
     
     return redirect(
-f'https://slack.com/oauth/v2/authorize?client_id={client_id}&scope=channels:manage,channels:read,channels:write,channels:history,channels:join,chat:write,incoming-webhook,users:read&redirect_uri={redirect_uri}'
+f'https://slack.com/oauth/v2/authorize?client_id=7346676503460.7369836389377&scope=channels:manage,chat:write,incoming-webhook&redirect_uri=https://slackproject-b05caef5e7f3.herokuapp.com/slack/callback/
+'
     )
 
 
