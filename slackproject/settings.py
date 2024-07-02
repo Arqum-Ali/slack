@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-=*v4p+m3%&$h9z^lp16^uksx*s6e72_)d8*gfk6hi_^iu32-74
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['slackproject.herokuapp.com','https://slackproject-b05caef5e7f3.herokuapp.com/','slackproject-b05caef5e7f3.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','slackproject.herokuapp.com','https://slackproject-b05caef5e7f3.herokuapp.com/','slackproject-b05caef5e7f3.herokuapp.com']
 
 
 # Application definition
@@ -129,6 +129,7 @@ import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from decouple import config
 import django_heroku
+print("132")
 
 SECRET_KEY = config('SECRET_KEY')
 SLACK_CLIENT_ID = config('SLACK_CLIENT_ID')
