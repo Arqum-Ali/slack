@@ -4,10 +4,44 @@ from django.http import HttpResponse
 import requests
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
+import requests
 
 def create_channel(request):
-    
-    return HttpResponse('hello')
+
+    # Replace with your Slack API token
+    slack_token = 'AzyEpqU4IWEB1yeDmZgm5A0o'
+
+    # API endpoint for creating channels
+    url = 'https://slack.com/api/conversations.create'
+
+    # Channel name and other parameters
+    channel_name = 'heloqqqqqqqqqqqq'
+    is_private = False  # Set to True for private channels
+
+    # Payload for the API request
+    data = {
+        'token': slack_token,
+        'name': channel_name,
+        'is_private': is_private
+    }
+
+    # Send the request
+    response = requests.post(url, data=data)
+
+    # Check if the request was successful
+    if response.status_code == 200:
+        response_data = response.json()
+        if response_data['ok']:
+            print(f"Channel '{channel_name}' created successfully.")
+            return HttpResponse('channel create sucessfully')
+
+        else:
+            print(f"Failed to create channel: {response_data['error']}")
+            return HttpResponse('channel create failed')
+
+    else:
+        print(f"Failed to create channel. Status code: {response.status_code}")
+        return HttpResponse('Responce is not 200')
 
 
 
