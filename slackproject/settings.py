@@ -135,5 +135,6 @@ SECRET_KEY = config('SECRET_KEY')
 SLACK_CLIENT_ID = config('SLACK_CLIENT_ID')
 SLACK_CLIENT_SECRET = config('SLACK_CLIENT_SECRET')
 SLACK_REDIRECT_URI = config('SLACK_REDIRECT_URI')
+SLACK_TOKEN = config('SLACK_TOKEN')
 
 django_heroku.settings(locals())
