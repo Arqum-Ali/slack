@@ -5,6 +5,13 @@ import requests
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseRedirect
 
+def create_channel(request):
+    
+    return HttpResponse('hello')
+
+
+
+
 def login(request):
     print("9")
     print(settings.SLACK_REDIRECT_URI)
