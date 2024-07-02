@@ -9,7 +9,9 @@ import requests
 def create_channel(request):
 
     # Replace with your Slack API token
-    slack_token = 'AzyEpqU4IWEB1yeDmZgm5A0o'
+    # slack_token = '1fbf4a419f35c3c9391a64ecdbe3da9f'
+    slack_token = '1fbf4a419f35c3c9391a64ecdbe3da9f'
+
 
     # API endpoint for creating channels
     url = 'https://slack.com/api/conversations.create'
@@ -27,10 +29,13 @@ def create_channel(request):
 
     # Send the request
     response = requests.post(url, data=data)
-
+    print(response)
     # Check if the request was successful
+    print(response.status_code)
     if response.status_code == 200:
+        print(response.json())
         response_data = response.json()
+
         if response_data['ok']:
             print(f"Channel '{channel_name}' created successfully.")
             return HttpResponse('channel create sucessfully')
