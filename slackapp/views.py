@@ -3,13 +3,29 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 import requests
 from django.conf import settings
+from django.http import HttpResponse, HttpResponseRedirect
+def hello(request):
+    print("9")
+    print(settings.SLACK_REDIRECT_URI)
+
+    client_id = settings.SLACK_CLIENT_ID
+
+    return HttpResponseRedirect(client_id)
 
 def login(request):
-    client_id = settings.SLACK_CLIENT_ID
+    print("9")
+    print(settings.SLACK_REDIRECT_URI)
+    print("11")
+    # client_id = settings.SLACK_REDIRECT_URI
+
+    client_id = "7346676503460.7369836389377"
     redirect_uri = settings.SLACK_REDIRECT_URI
-    return redirect(
-        f'https://slack.com/oauth/v2/authorize?client_id={client_id}&scope=channels:manage,channels:read,channels:write,users:read&redirect_uri={redirect_uri}'
-    )
+    
+    # return redirect(
+    #     # f'https://slack.com/oauth/v2/authorize?client_id={client_id}&scope=channels:manage,channels:read,channels:write,users:read&redirect_uri={redirect_uri}'
+    # )
+    return HttpResponseRedirect(redirect_uri)
+
 
 def oauth_callback(request):
     code = request.GET.get('code')
