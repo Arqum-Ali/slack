@@ -9,8 +9,6 @@ import requests
 def create_channel(request):
 
     # Replace with your Slack API token
-    # slack_token = '1fbf4a419f35c3c9391a64ecdbe3da9f'
-    slack_token = '1fbf4a419f35c3c9391a64ecdbe3da9f'
 
 
     # API endpoint for creating channels
@@ -22,7 +20,6 @@ def create_channel(request):
 
     # Payload for the API request
     data = {
-        'token': slack_token,
         'name': channel_name,
         'is_private': is_private
     }
