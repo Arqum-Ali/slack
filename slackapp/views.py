@@ -22,6 +22,24 @@ def create_channel(request):
         'name': channel_name,
         'is_private': is_private
     }
+def create_channel(request):
+
+    # Replace with your Slack API token
+
+
+    # API endpoint for creating channels
+    url = 'https://slack.com/api/conversations.create'
+
+    # Channel name and other parameters
+    channel_name = 'heloqqqqqqqqqqqq'
+    is_private = False  # Set to True for private channels
+
+    # Payload for the API request
+    data = {
+        'name': channel_name,
+        'is_private': is_private
+    }
+
     # Send the request
     response = requests.post(url, data=data)
     print(response)
@@ -36,10 +54,11 @@ def create_channel(request):
         else:
             print(f"Failed to create channel: {response_data['error']}")
             return HttpResponse('channel create failed')
+
+        
     else:
         print(f"Failed to create channel. Status code: {response.status_code}")
         return HttpResponse('Responce is not 200')
-
 
 
 
@@ -204,6 +223,7 @@ def get_channel_members(request):
     else:
         print(f"Failed to fetch members.not the 200 code Status code: {response.status_code}")
         return HttpResponse(f"Failed to fetch members.Status code: {response.status_code}", status=400)
+
 
 
 
